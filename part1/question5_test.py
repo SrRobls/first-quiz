@@ -67,8 +67,13 @@ def test_select_all_vegetarian_pets():
     rows = res.fetchall()
 
   rows.sort()
-
+  print(rows)
   assert rows[0] == ('leyla', 'spinach')
   assert rows[1] == ('martin', 'spinach')
   assert rows[2] == ('ricky', 'cough drops')
   assert rows[3] == ('shannon', 'turnips')
+
+
+test_create_favorite_foods()
+test_alter_tables_with_favorite_food()
+test_select_all_vegetarian_pets()

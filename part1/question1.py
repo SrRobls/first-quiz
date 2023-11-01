@@ -20,6 +20,9 @@ def get_city_temperature(city):
       return 17
    if city == "San Francisco":
       return 16
+   #  Agregamos el conidicional para que tambien tenga en cuenta la ciudad Nueva York
+   if city == "New York":
+      return 14
 
 def get_city_weather(city):
 
@@ -29,6 +32,9 @@ def get_city_weather(city):
      sky_condition = "cloudy"
   elif city == "New York":
      sky_condition = "rainy"
+   # Tambien, agramos el tipo de clima para la ciudad de Quito   
+  elif city == "Quito":
+     sky_condition = "sunny"
 
   temperature = get_city_temperature(city)
 

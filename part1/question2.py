@@ -19,3 +19,10 @@ swapper = None
 
 def run_swapper(list_of_tuples):
   return list(map(swapper, list_of_tuples))
+
+def swapper(tupla):
+  return (tupla[1], tupla[0])
+
+
+if __name__ == "__main__":
+  print(run_swapper([ (1, 1), ("foo", "bar"), (13, "cows"), (None, "Some") ]))
