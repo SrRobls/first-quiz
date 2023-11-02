@@ -24,8 +24,10 @@ public class VendingMachineImpl implements VendingMachine {
 
         @Override
         public boolean isFizzy() {
-          Boolean Fizzy = true;
-          return Fizzy;
+          if (getName() == "ScottCola") {
+            return true;
+          }
+          return false;
         }
 
         // public Integer getPrice() {
@@ -43,8 +45,10 @@ public class VendingMachineImpl implements VendingMachine {
 
         @Override
         public boolean isFizzy() {
-          Boolean Fizzy = false;
-          return Fizzy;
+          if (getName() == "ScottCola") {
+            return true;
+          }
+          return false;
         }
 
         // public Integer getPrice() {
@@ -72,7 +76,11 @@ public class VendingMachineImpl implements VendingMachine {
   // las excepciones
   @Override
   public Drink pressButton(String name) throws NotEnoughMoneyException, UnknownDrinkException {
+    // Iteramos por todas la bebidas que dispone la maquina (solo 2 jaja).
     for (Drink drink : drinks) {
+      // Si damos con la bebida segúnla que pide el cliente, procedemos a obtenemos su
+      // precio
+      // y hacer los respectivos calcúlos de compra
       if (drink.getName().equals(name)) {
         Integer price;
         if (name.equals("ScottCola")) {
@@ -80,6 +88,7 @@ public class VendingMachineImpl implements VendingMachine {
         } else {
           price = 100;
         }
+        // Si no alcanza, arrojamos la excepción
         if (money >= price) {
           money -= price;
           return drink;
@@ -88,6 +97,7 @@ public class VendingMachineImpl implements VendingMachine {
         }
       }
     }
+    // Si la bebida que pide el usuario no está, arrojamos la excepción.
     throw new UnknownDrinkException();
   }
 }
